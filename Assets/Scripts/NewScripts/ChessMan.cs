@@ -1,20 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public abstract class ChessMan : MonoBehaviour 
+public abstract class ChessMan : MonoBehaviour
 {
-	public int CurrentX { set; get; }
-	public int CurrentY { set; get; }
-	public bool IsWhite;
+    public bool IsWhite;
+    public int CurrentX { set; get; }
+    public int CurrentY { set; get; }
 
-	public void SetPosition(int X, int Y)
-	{
-		CurrentX = X;
-		CurrentY = Y;
-	}
-	public virtual bool[,] PossibleMove()
-	{
-		return new bool[8, 8];
-	}
+    public void SetPosition(int x, int y)
+    {
+        CurrentX = x;
+        CurrentY = y;
+    }
+
+    public virtual bool[,] PossibleMove() => new bool[8, 8];
 }
