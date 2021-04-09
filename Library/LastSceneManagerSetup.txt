@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Chess Remaster.unity
-  isLoaded: 1
-  isActive: 1
