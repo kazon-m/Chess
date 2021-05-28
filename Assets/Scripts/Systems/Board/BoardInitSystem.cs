@@ -1,27 +1,30 @@
 ﻿using Components;
 using Leopotam.Ecs;
+using UnityEngine;
 
 namespace Systems.Board
 {
     public class BoardInitSystem : IEcsInitSystem
     {
-        private readonly EcsWorld _world = default;
-        private readonly EcsFilter<BoardComponent> _filter = default;
-        
+        private readonly EcsWorld _world = null;
+
         public void Init()
         {
-            foreach(var i in _filter)
+            var isWhite = true;
+            for(var x = 0; x < 8; x++)
             {
-                var isWhite = true;
                 for(var y = 0; y < 8; y++)
                 {
-                    for(var x = 0; x < 8; x++)
-                    {
-                        isWhite = !isWhite;
-                    }
-
+                    var squareEntity = _world.NewEntity();
+                    ref var square = ref squareEntity.Get<SquareComponent>();
+                    
+                    square.Position = new Vector2Int(x, y);
+                    square.IsWhite = isWhite;
+                    
                     isWhite = !isWhite;
                 }
+
+                isWhite = !isWhite;
             }
         }
     }
