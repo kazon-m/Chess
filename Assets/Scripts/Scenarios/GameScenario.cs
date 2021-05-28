@@ -1,4 +1,5 @@
 ﻿using Components;
+using Components.Chess;
 using Leopotam.Ecs;
 
 namespace Scenarios

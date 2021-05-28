@@ -11,10 +11,12 @@ namespace Core
 
         private void Start()
         {
-            _world = new EcsWorld();
-            _systems = new EcsSystems(_world).Add(new GameScenario());
+            Application.targetFrameRate = 60;
 
-            _systems.Init();
+            _world = new EcsWorld();
+            _systems = new EcsSystems(_world);
+
+            _systems.Add(new GameScenario()).Init();
         }
 
         private void Update() => _systems.Run();
