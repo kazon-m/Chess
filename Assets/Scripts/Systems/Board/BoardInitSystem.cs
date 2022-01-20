@@ -1,6 +1,8 @@
 ﻿using Components;
+using Components.Chess;
 using Components.Events;
 using Data;
+using Data.Enums;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -44,6 +46,35 @@ namespace Systems.Board
                     }
 
                     isWhite = !isWhite;
+                }
+                
+                foreach(var chessItem in _chessPreset.ChessList)
+                {
+                    foreach(var position in chessItem.whitePositions)
+                    {
+                        var square = board.matrix[position.x, position.y];
+                        
+                        var chessEntity = _world.NewEntity();
+                        ref var chess = ref chessEntity.Get<ChessComponent>();
+                        
+                        chess.component = Object.Instantiate(_chessPreset.ChessPrefab, square.component.transform);
+                        chess.component.sprite = chessItem.spriteWhite;
+                        chess.type = chessItem.type;
+                        chess.team = TeamType.White;
+                    }
+                            
+                    foreach(var position in chessItem.blackPositions)
+                    {
+                        var square = board.matrix[position.x, position.y];
+                        
+                        var chessEntity = _world.NewEntity();
+                        ref var chess = ref chessEntity.Get<ChessComponent>();
+                        
+                        chess.component = Object.Instantiate(_chessPreset.ChessPrefab, square.component.transform);
+                        chess.component.sprite = chessItem.spriteBlack;
+                        chess.type = chessItem.type;
+                        chess.team = TeamType.Black;
+                    }
                 }
             }
         }

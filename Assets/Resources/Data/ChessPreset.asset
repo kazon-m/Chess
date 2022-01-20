@@ -25,28 +25,72 @@ MonoBehaviour:
     moves: {fileID: 0}
     spriteWhite: {fileID: 21300046, guid: 93afc01c0f71ce84faa1584e61a17f01, type: 3}
     spriteBlack: {fileID: 21300034, guid: 93afc01c0f71ce84faa1584e61a17f01, type: 3}
+    whitePositions:
+    - {x: 6, y: 0}
+    - {x: 6, y: 1}
+    - {x: 6, y: 2}
+    - {x: 6, y: 3}
+    - {x: 6, y: 4}
+    - {x: 6, y: 5}
+    - {x: 6, y: 6}
+    - {x: 6, y: 7}
+    blackPositions:
+    - {x: 1, y: 0}
+    - {x: 1, y: 1}
+    - {x: 1, y: 2}
+    - {x: 1, y: 3}
+    - {x: 1, y: 4}
+    - {x: 1, y: 5}
+    - {x: 1, y: 6}
+    - {x: 1, y: 7}
   - type: 1
     value: 20000
     moves: {fileID: 0}
     spriteWhite: {fileID: 21300036, guid: 93afc01c0f71ce84faa1584e61a17f01, type: 3}
     spriteBlack: {fileID: 21300024, guid: 93afc01c0f71ce84faa1584e61a17f01, type: 3}
+    whitePositions:
+    - {x: 7, y: 4}
+    blackPositions:
+    - {x: 0, y: 4}
   - type: 2
     value: 900
     moves: {fileID: 0}
     spriteWhite: {fileID: 21300038, guid: 93afc01c0f71ce84faa1584e61a17f01, type: 3}
     spriteBlack: {fileID: 21300026, guid: 93afc01c0f71ce84faa1584e61a17f01, type: 3}
+    whitePositions:
+    - {x: 7, y: 3}
+    blackPositions:
+    - {x: 0, y: 3}
   - type: 3
     value: 320
     moves: {fileID: 0}
     spriteWhite: {fileID: 21300042, guid: 93afc01c0f71ce84faa1584e61a17f01, type: 3}
     spriteBlack: {fileID: 21300030, guid: 93afc01c0f71ce84faa1584e61a17f01, type: 3}
+    whitePositions:
+    - {x: 7, y: 1}
+    - {x: 7, y: 6}
+    blackPositions:
+    - {x: 0, y: 1}
+    - {x: 0, y: 6}
   - type: 4
     value: 330
     moves: {fileID: 0}
     spriteWhite: {fileID: 21300044, guid: 93afc01c0f71ce84faa1584e61a17f01, type: 3}
     spriteBlack: {fileID: 21300032, guid: 93afc01c0f71ce84faa1584e61a17f01, type: 3}
+    whitePositions:
+    - {x: 7, y: 2}
+    - {x: 7, y: 5}
+    blackPositions:
+    - {x: 0, y: 2}
+    - {x: 0, y: 5}
   - type: 5
     value: 500
     moves: {fileID: 0}
     spriteWhite: {fileID: 21300040, guid: 93afc01c0f71ce84faa1584e61a17f01, type: 3}
     spriteBlack: {fileID: 21300028, guid: 93afc01c0f71ce84faa1584e61a17f01, type: 3}
+    whitePositions:
+    - {x: 7, y: 0}
+    - {x: 7, y: 7}
+    blackPositions:
+    - {x: 0, y: 0}
+    - {x: 0, y: 7}

@@ -30,6 +30,8 @@ namespace Data
             public GameObject moves;
             public Sprite spriteWhite;
             public Sprite spriteBlack;
+            public List<Vector2Int> whitePositions;
+            public List<Vector2Int> blackPositions;
         }
     }
 }
