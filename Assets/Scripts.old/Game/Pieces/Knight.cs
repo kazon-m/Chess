@@ -17,8 +17,8 @@ namespace Game.Pieces
         {
             var knight = new Knight();
             copySquare.SetNewPiece(knight);
-            knight.PieceValue = PieceValue;
-            knight.Values = Values;
+            knight.pieceValue = pieceValue;
+            knight.values = values;
             knight.PossibleMoves = new List<Move>();
             return knight;
         }

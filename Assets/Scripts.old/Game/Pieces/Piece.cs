@@ -7,18 +7,18 @@ namespace Game.Pieces
 {
     public class Piece
     {
-        protected readonly PieceBehaviour Behaviour;
-        protected int PieceValue;
+        protected readonly PieceBehaviour behaviour;
+        protected int pieceValue;
 
-        protected SquareTableValues Values;
+        protected SquareTableValues values;
 
         public Piece() { }
 
         public Piece(PieceBehaviour behaviour, int pieceValue, SquareTableValues values)
         {
-            Behaviour = behaviour;
-            PieceValue = pieceValue;
-            Values = values;
+            this.behaviour = behaviour;
+            this.pieceValue = pieceValue;
+            this.values = values;
             PossibleMoves = new List<Move>();
         }
 
@@ -35,8 +35,8 @@ namespace Game.Pieces
 
         public int EvaluateBoardScore()
         {
-            TotalPieceValue = PieceValue
-                            + Values.SquareValues[ActualSquare.X,
+            TotalPieceValue = pieceValue
+                            + values.squareValues[ActualSquare.X,
                                                   Mathf.Abs(ActualSquare.Y - Propietary.ModSquareTableValue)];
             return TotalPieceValue;
         }
@@ -50,7 +50,7 @@ namespace Game.Pieces
         public virtual void Move(SquareBehaviour destiny)
         {
             Move(destiny.Square);
-            if(Behaviour != null)
+            if(behaviour != null)
             {
                 /*Behaviour.transform.DOMove(
                     new Vector3(destiny.transform.position.x, Behaviour.transform.position.y,
@@ -63,7 +63,7 @@ namespace Game.Pieces
             if(Propietary != null)
             {
                 Propietary.DestroyPiece(this);
-                if(Behaviour != null) Object.Destroy(Behaviour.gameObject);
+                if(behaviour != null) Object.Destroy(behaviour.gameObject);
             }
         }
 
@@ -75,7 +75,7 @@ namespace Game.Pieces
             Propietary.AddPiece(this);
         }
 
-        public int ActualValue() => PieceValue + Values.SquareValues[ActualSquare.X, ActualSquare.Y];
+        public int ActualValue() => pieceValue + values.squareValues[ActualSquare.X, ActualSquare.Y];
 
         public void RemoveMove(Square value)
         {

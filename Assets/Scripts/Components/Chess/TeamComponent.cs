@@ -4,6 +4,6 @@ namespace Components.Chess
 {
     public struct TeamComponent
     {
-        public TeamType Type;
+        public TeamType type;
     }
 }

@@ -23,8 +23,8 @@ namespace Game.Pieces
         {
             var pawn = new Pawn();
             copySquare.SetNewPiece(pawn);
-            pawn.PieceValue = PieceValue;
-            pawn.Values = Values;
+            pawn.pieceValue = pieceValue;
+            pawn.values = values;
             pawn._evaluatedYet = _evaluatedYet;
             pawn._yDirection = _yDirection;
             pawn._justMovedTwo = _justMovedTwo;
@@ -134,7 +134,7 @@ namespace Game.Pieces
                 var number = Propietary.ReturnNumberPiece(this);
                 PossibleMoves[PossibleMoves.Count - 1].RegisterCallback(() =>
                 {
-                    if(Behaviour != null)
+                    if(behaviour != null)
                     {
                         GameController.Instance.InstantiatePiece(PieceType.Queen, ActualSquare.Behaviour,
                                                                  Propietary);

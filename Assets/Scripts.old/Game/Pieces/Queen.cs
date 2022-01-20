@@ -16,8 +16,8 @@ namespace Game.Pieces
         public Queen(int pieceValue, SquareTableValues values, Square square, Player propietary)
         {
             square.SetNewPiece(this);
-            PieceValue = pieceValue;
-            Values = values;
+            base.pieceValue = pieceValue;
+            base.values = values;
             SetPropietary(propietary);
             PossibleMoves = new List<Move>();
         }
@@ -26,8 +26,8 @@ namespace Game.Pieces
         {
             var queen = new Queen();
             copySquare.SetNewPiece(queen);
-            queen.PieceValue = PieceValue;
-            queen.Values = Values;
+            queen.pieceValue = pieceValue;
+            queen.values = values;
             queen.PossibleMoves = new List<Move>();
             return queen;
         }

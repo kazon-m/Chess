@@ -25,8 +25,8 @@ namespace Game.Pieces
         {
             var king = new King();
             copySquare.SetNewPiece(king);
-            king.PieceValue = PieceValue;
-            king.Values = Values;
+            king.pieceValue = pieceValue;
+            king.values = values;
             king._isMoved = _isMoved;
             king.PossibleMoves = new List<Move>();
             return king;

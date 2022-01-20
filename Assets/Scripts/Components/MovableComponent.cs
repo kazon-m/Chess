@@ -4,6 +4,6 @@ namespace Components
 {
     public struct MovableComponent
     {
-        public Vector2Int Position;
+        public Vector2Int position;
     }
 }

@@ -2,6 +2,6 @@
 {
     public struct BoardComponent
     {
-        public SquareComponent[,] Matrix;
+        public SquareComponent[,] matrix;
     }
 }

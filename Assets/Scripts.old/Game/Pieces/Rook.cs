@@ -25,8 +25,8 @@ namespace Game.Pieces
         {
             var rook = new Rook();
             copySquare.SetNewPiece(rook);
-            rook.PieceValue = PieceValue;
-            rook.Values = Values;
+            rook.pieceValue = pieceValue;
+            rook.values = values;
             rook.IsMoved = IsMoved;
             rook.PossibleMoves = new List<Move>();
             return rook;

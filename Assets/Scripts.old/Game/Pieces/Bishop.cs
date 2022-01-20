@@ -17,8 +17,8 @@ namespace Game.Pieces
         {
             var bishop = new Bishop();
             copySquare.SetNewPiece(bishop);
-            bishop.PieceValue = PieceValue;
-            bishop.Values = Values;
+            bishop.pieceValue = pieceValue;
+            bishop.values = values;
             bishop.PossibleMoves = new List<Move>();
             return bishop;
         }
