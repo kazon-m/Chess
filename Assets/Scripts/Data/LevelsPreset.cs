@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Data
 {
-    [CreateAssetMenu(fileName = "LevelsPreset", menuName = "Game Template/Levels Preset", order = 0)]
+    [CreateAssetMenu(fileName = "LevelsPreset", menuName = "Chess/Levels Preset", order = 0)]
     public class LevelsPreset : ScriptableObject
     {
         public List<LevelItem> levels = new List<LevelItem>();

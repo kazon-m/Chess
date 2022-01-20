@@ -1,10 +1,10 @@
-﻿using Enums;
+﻿using Data.Enums;
 
 namespace Components.Chess
 {
     public struct PieceComponent
     {
-        public PieceType type;
+        public ChessType type;
         public int pieceValue;
     }
 }

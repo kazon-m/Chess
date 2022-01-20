@@ -1,4 +1,6 @@
-﻿using Data.Models;
+﻿using Data;
+using Data.Models;
+using Helpers;
 using Leopotam.Ecs;
 using Systems;
 using Systems.Board;
@@ -16,6 +18,9 @@ namespace Core
         [SerializeField]
         private Transform _ui;
 
+        [SerializeField]
+        private ChessPreset _chessPreset;
+
         private LevelManager _levelManager;
 
         private Menu _menu;
@@ -32,6 +37,8 @@ namespace Core
             _world = new EcsWorld();
             _systems = new EcsSystems(_world);
 
+            EcsEvents.world = _world;
+
             #if UNITY_EDITOR
             EcsWorldObserver.Create(_world);
             EcsSystemsObserver.Create(_systems);
@@ -40,7 +47,7 @@ namespace Core
             InitializeUI();
             InitializeSystems();
 
-            _systems.Inject(_levelManager).Init();
+            _systems.OneFrameEvents().Inject(_levelManager).Inject(_chessPreset).Init();
 
             _menu.Get<TransitionController>().Show();
 
@@ -65,16 +72,14 @@ namespace Core
         {
             if(_systems == null) return;
 
+            EcsEvents.world = null;
             _systems.Destroy();
             _systems = null;
             _world.Destroy();
             _world = null;
         }
 
-        private void InitializeSystems()
-        {
-            _systems.Add(new BoardInitSystem());
-        }
+        private void InitializeSystems() { _systems.Add(new BoardInitSystem()); }
 
         private void InitializeUI()
         {

@@ -1,4 +1,4 @@
-﻿using Enums;
+﻿using Data.Enums;
 
 namespace Components.Chess
 {

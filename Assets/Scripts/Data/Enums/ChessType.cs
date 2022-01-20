@@ -1,6 +1,6 @@
-﻿namespace Enums
+﻿namespace Data.Enums
 {
-    public enum PieceType
+    public enum ChessType
     {
         Pawn,
         King,

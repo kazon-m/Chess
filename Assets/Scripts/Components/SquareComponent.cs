@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Components
 {
@@ -6,5 +7,6 @@ namespace Components
     {
         public bool isWhite;
         public Vector2Int position;
+        public Image component;
     }
 }

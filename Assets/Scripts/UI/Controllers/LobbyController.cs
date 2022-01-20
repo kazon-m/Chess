@@ -7,9 +7,8 @@ namespace UI.Controllers
 {
     public class LobbyController : IController
     {
+        private Menu _menu;
         private LobbyView _view;
-
-        public Menu menu;
 
         public void Show() => _view.gameObject.SetActive(true);
 
@@ -18,10 +17,10 @@ namespace UI.Controllers
         public void Init()
         {
             if(_view != null) return;
-            
-            _view = ObjectCreator.Create<LobbyView>("UI/LobbyView/LobbyView", menu.UI);
+
+            _view = ObjectCreator.Create<LobbyView>("UI/LobbyView/LobbyView", _menu.UI);
             _view.gameObject.SetActive(false);
-            
+
             if(_view.playButton != null) _view.playButton.onClick.AddListener(OnPlayClick);
             if(_view.infoButton != null) _view.infoButton.onClick.AddListener(OnInfoClick);
             if(_view.settingsButton != null) _view.settingsButton.onClick.AddListener(OnSettingsClick);
@@ -30,7 +29,7 @@ namespace UI.Controllers
         public void Destroy()
         {
             if(_view == null) return;
-            
+
             if(_view.playButton != null) _view.playButton.onClick.RemoveAllListeners();
             if(_view.infoButton != null) _view.infoButton.onClick.RemoveAllListeners();
             if(_view.settingsButton != null) _view.settingsButton.onClick.RemoveAllListeners();
@@ -39,20 +38,14 @@ namespace UI.Controllers
             _view = null;
         }
 
-        private void OnPlayClick()
-        {
-            Hide();
-        }
+        private void OnPlayClick() => Hide();
 
-        private void OnInfoClick()
-        {
-            Hide();
-        }
+        private void OnInfoClick() => Hide();
 
         private void OnSettingsClick()
         {
             Hide();
-            menu.Get<SettingsController>().Show();
+            _menu.Get<SettingsController>().Show();
         }
     }
 }

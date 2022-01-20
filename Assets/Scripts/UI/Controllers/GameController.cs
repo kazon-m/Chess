@@ -7,9 +7,8 @@ namespace UI.Controllers
 {
     public class GameController : IController
     {
+        private Menu _menu;
         private GameView _view;
-
-        public Menu menu;
 
         public void Show() => _view.gameObject.SetActive(true);
 
@@ -18,8 +17,8 @@ namespace UI.Controllers
         public void Init()
         {
             if(_view != null) return;
-            
-            _view = ObjectCreator.Create<GameView>("UI/GameView/GameView", menu.UI);
+
+            _view = ObjectCreator.Create<GameView>("UI/GameView/GameView", _menu.UI);
             _view.gameObject.SetActive(false);
         }
 

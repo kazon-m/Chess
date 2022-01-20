@@ -1,4 +1,4 @@
-﻿namespace Enums
+﻿namespace Data.Enums
 {
     public enum TeamType
     {
