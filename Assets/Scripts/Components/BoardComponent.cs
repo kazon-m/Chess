@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Data.Enums;
+using UnityEngine;
 
 namespace Components
 {
@@ -6,5 +7,6 @@ namespace Components
     {
         public SquareComponent[,] matrix;
         public GameObject component;
+        public TeamType move;
     }
 }

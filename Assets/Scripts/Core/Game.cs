@@ -79,7 +79,13 @@ namespace Core
             _world = null;
         }
 
-        private void InitializeSystems() { _systems.Add(new BoardInitSystem()); }
+        private void InitializeSystems()
+        {
+            _systems.Add(new BoardInitSystem());
+            _systems.Add(new SquareSystem());
+            _systems.Add(new MovableSystem());
+            _systems.Add(new PlayerSystem());
+        }
 
         private void InitializeUI()
         {
