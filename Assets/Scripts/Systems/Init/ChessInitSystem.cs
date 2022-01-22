@@ -7,33 +7,32 @@ namespace Systems.Init
 {
     public class ChessInitSystem : IEcsInitSystem
     {
+        private readonly EcsFilter<SquareComponent, PositionComponent> _squareFilter = null;
         private readonly ChessPreset _chessPreset = null;
-        private readonly EcsWorld _world = null;
 
         public void Init()
         {
-            foreach(var chessItem in _chessPreset.ChessList)
+            foreach(var i in _squareFilter)
             {
-                foreach(var position in chessItem.whitePositions)
+                ref var entity = ref _squareFilter.GetEntity(i);
+                ref var squarePosition = ref _squareFilter.Get2(i);
+
+                foreach(var chessItem in _chessPreset.ChessList)
                 {
-                    var chessEntity = _world.NewEntity();
-                    ref var chess = ref chessEntity.Get<ChessComponent>();
-                    ref var chessPosition = ref chessEntity.Get<PositionComponent>();
+                    if(chessItem.whitePositions.Contains(squarePosition.value))
+                    {
+                        ref var chess = ref entity.Get<ChessComponent>();
 
-                    chess.type = chessItem.type;
-                    chess.team = TeamType.White;
-                    chessPosition.value = position;
-                }
+                        chess.type = chessItem.type;
+                        chess.team = TeamType.White;
+                    }
+                    else if(chessItem.blackPositions.Contains(squarePosition.value))
+                    {
+                        ref var chess = ref entity.Get<ChessComponent>();
 
-                foreach(var position in chessItem.blackPositions)
-                {
-                    var chessEntity = _world.NewEntity();
-                    ref var chess = ref chessEntity.Get<ChessComponent>();
-                    ref var chessPosition = ref chessEntity.Get<PositionComponent>();
-
-                    chess.type = chessItem.type;
-                    chess.team = TeamType.Black;
-                    chessPosition.value = position;
+                        chess.type = chessItem.type;
+                        chess.team = TeamType.Black;
+                    }
                 }
             }
         }

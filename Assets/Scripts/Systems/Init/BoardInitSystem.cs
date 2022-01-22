@@ -10,8 +10,8 @@ namespace Systems.Init
 
         public void Init()
         {
-            var boardEntity = _world.NewEntity();
-            ref var board = ref boardEntity.Get<BoardComponent>();
+            var entity = _world.NewEntity();
+            ref var board = ref entity.Get<BoardComponent>();
 
             board.move = TeamType.White;
         }

@@ -1,19 +1,30 @@
 ﻿using Components;
-using Components.Events;
+using Components.View;
 using Leopotam.Ecs;
+using UnityComponents;
+using UnityEngine;
 
 namespace Systems.View
 {
     public class BoardViewSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<OnCreateBoardEvent> _createBoardFilter = null;
-        private readonly EcsFilter<BoardComponent>.Exclude<ObjectComponent> _boardFilter = null;
+        private readonly EcsFilter<BoardComponent>.Exclude<BoardViewComponent> _boardFilter = null;
 
         public void Run()
         {
-            if(_createBoardFilter.IsEmpty() || _boardFilter.IsEmpty()) return;
+            foreach(var i in _boardFilter)
+            {
+                var board = Object.FindObjectOfType<BoardView>();
 
-            _boardFilter.GetEntity(0).Get<ObjectComponent>().value = _createBoardFilter.Get1(0).board;
+                if(board != null)
+                {
+                    ref var entity = ref _boardFilter.GetEntity(i);
+                    ref var boardView = ref entity.Get<BoardViewComponent>();
+
+                    boardView.value = Object.FindObjectOfType<BoardView>();
+                    boardView.value.entity = entity;
+                }
+            }
         }
     }
 }

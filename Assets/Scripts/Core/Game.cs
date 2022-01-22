@@ -38,8 +38,6 @@ namespace Core
             _world = new EcsWorld();
             _systems = new EcsSystems(_world);
 
-            EcsEvents.world = _world;
-
             #if UNITY_EDITOR
             EcsWorldObserver.Create(_world);
             EcsSystemsObserver.Create(_systems);
@@ -48,7 +46,7 @@ namespace Core
             InitializeUI();
             InitializeSystems();
 
-            _systems.OneFrameEvents().Inject(_levelManager).Inject(_chessPreset).Init();
+            _systems.Inject(_levelManager).Inject(_chessPreset).Init();
 
             _menu.Get<TransitionController>().Show();
 
@@ -73,7 +71,6 @@ namespace Core
         {
             if(_systems == null) return;
 
-            EcsEvents.world = null;
             _systems.Destroy();
             _systems = null;
             _world.Destroy();
@@ -87,8 +84,8 @@ namespace Core
                                                     .Add(new BoardViewSystem())
                                                     .Add(new SquareViewSystem())
                                                     .Add(new ChessViewSystem())
-                                                    .Add(new SquareSelectSystem())
-                                                    .Add(new MovementSystem());
+                                                    .Add(new MovementSystem())
+                                                    .Add(new SquareSelectSystem());
 
         private void InitializeUI()
         {

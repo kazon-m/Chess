@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8594c00a211845f59de44b45c20f47c8, type: 3}
   m_Name: ChessPreset
   m_EditorClassIdentifier: 
-  SquarePrefab: {fileID: 6962744645521025698, guid: 549956f9ebb81934682fdd8812eac16e, type: 3}
+  SquarePrefab: {fileID: 809716427589455304, guid: 549956f9ebb81934682fdd8812eac16e, type: 3}
   SquareWhiteColor: {r: 1, g: 1, b: 1, a: 1}
   SquareBlackColor: {r: 0, g: 0, b: 0, a: 1}
   SquareHoverColor: {r: 0.15294118, g: 1, b: 0, a: 1}
   SquareClickedColor: {r: 1, g: 0.93333334, b: 0, a: 1}
   SquarePossibleColor: {r: 1, g: 0, b: 0, a: 1}
-  ChessPrefab: {fileID: 3655911185227487456, guid: 8e10a6d75bad37b4ba61ddd9adf11152, type: 3}
+  ChessPrefab: {fileID: -3878566713688871061, guid: 8e10a6d75bad37b4ba61ddd9adf11152, type: 3}
   ChessList:
   - type: 0
     value: 100

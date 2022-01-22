@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Data.Enums;
+using UnityComponents;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Data
 {
@@ -10,7 +10,7 @@ namespace Data
     public class ChessPreset : ScriptableObject
     {
         [Header("Square settings")]
-        public Image SquarePrefab;
+        public SquareView SquarePrefab;
 
         public Color SquareWhiteColor;
         public Color SquareBlackColor;
@@ -19,7 +19,7 @@ namespace Data
         public Color SquarePossibleColor;
 
         [Header("Chess settings")]
-        public Image ChessPrefab;
+        public ChessView ChessPrefab;
 
         public List<ChessItem> ChessList = new List<ChessItem>();
 

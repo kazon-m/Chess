@@ -1,4 +1,5 @@
 ﻿using Components;
+using Components.View;
 using Data;
 using Data.Enums;
 using Leopotam.Ecs;
@@ -9,29 +10,21 @@ namespace Systems.View
     public class ChessViewSystem : IEcsRunSystem
     {
         private readonly ChessPreset _chessPreset = null;
-        private readonly EcsFilter<SquareComponent, PositionComponent, ViewComponent> _squareFilter = null;
-        private readonly EcsFilter<ChessComponent, PositionComponent>.Exclude<ViewComponent> _chessFilter = null;
+        private readonly EcsFilter<ChessComponent, SquareViewComponent>.Exclude<ChessViewComponent> _chessFilter = null;
 
         public void Run()
         {
-            if(_chessFilter.IsEmpty() || _squareFilter.IsEmpty()) return;
-
             foreach(var i in _chessFilter)
             {
-                foreach(var j in _squareFilter)
-                {
-                    if(_squareFilter.Get2(j).value == _chessFilter.Get2(i).value)
-                    {
-                        ref var chess = ref _chessFilter.Get1(i);
-                        ref var chessView = ref _chessFilter.GetEntity(i).Get<ViewComponent>();
+                ref var entity = ref _chessFilter.GetEntity(i);
+                ref var chess = ref _chessFilter.Get1(i);
+                ref var squareView = ref _chessFilter.Get2(i);
+                ref var chessView = ref entity.Get<ChessViewComponent>();
 
-                        var chessItem = _chessPreset.GetChessItemByType(chess.type);
-                        chessView.value = Object.Instantiate(_chessPreset.ChessPrefab, _squareFilter.Get3(j).value.transform);
-                        chessView.value.sprite = chess.team == TeamType.White ? chessItem.spriteWhite : chessItem.spriteBlack;
-                        
-                        break;
-                    }
-                }
+                var chessItem = _chessPreset.GetChessItemByType(chess.type);
+                chessView.value = Object.Instantiate(_chessPreset.ChessPrefab, squareView.value.transform);
+                chessView.value.Image.sprite = chess.team == TeamType.White ? chessItem.spriteWhite : chessItem.spriteBlack;
+                chessView.value.entity = entity;
             }
         }
     }

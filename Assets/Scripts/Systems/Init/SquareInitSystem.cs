@@ -16,9 +16,9 @@ namespace Systems.Init
             {
                 for(var y = 0; y < 8; y++)
                 {
-                    var squareEntity = _world.NewEntity();
-                    ref var square = ref squareEntity.Get<SquareComponent>();
-                    ref var squarePosition = ref squareEntity.Get<PositionComponent>();
+                    var entity = _world.NewEntity();
+                    ref var square = ref entity.Get<SquareComponent>();
+                    ref var squarePosition = ref entity.Get<PositionComponent>();
 
                     square.isWhite = isWhite;
                     squarePosition.value = new Vector2Int(x, y);
