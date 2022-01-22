@@ -20,11 +20,11 @@ namespace Systems
 
         public Transform UI { get; }
 
-        public T Add<T>(T controller) where T : IController
+        public Menu Add<T>(T controller) where T : IController
         {
             _systems.Add(controller);
             _controllers.Add(controller);
-            return controller;
+            return this;
         }
 
         public T Get<T>() where T : IController

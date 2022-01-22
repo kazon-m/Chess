@@ -1,11 +1,10 @@
 ﻿using Data.Enums;
 
-namespace Components.Chess
+namespace Components
 {
     public struct PlayerComponent
     {
         public TeamType team;
         public PlayerType type;
-        public SquareComponent square;
     }
 }

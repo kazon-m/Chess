@@ -22,7 +22,7 @@ namespace Helpers
             ref var eventComponent = ref eventEntity.Get<OnCreateBoardEvent>();
             eventComponent.board = board;
         }
-        
+
         public static void RegisterOnSquareClickEvent(Image square)
         {
             var eventEntity = world.NewEntity();

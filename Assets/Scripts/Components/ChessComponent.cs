@@ -1,12 +1,10 @@
 ﻿using Data.Enums;
-using UnityEngine.UI;
 
-namespace Components.Chess
+namespace Components
 {
     public struct ChessComponent
     {
         public ChessType type;
         public TeamType team;
-        public Image component;
     }
 }

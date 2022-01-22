@@ -3,7 +3,8 @@ using Data.Models;
 using Helpers;
 using Leopotam.Ecs;
 using Systems;
-using Systems.Board;
+using Systems.Init;
+using Systems.View;
 using UI.Controllers;
 using UnityEngine;
 #if UNITY_EDITOR
@@ -79,20 +80,24 @@ namespace Core
             _world = null;
         }
 
-        private void InitializeSystems()
-        {
-            _systems.Add(new BoardInitSystem());
-            _systems.Add(new SquareSystem());
-            _systems.Add(new MovableSystem());
-            _systems.Add(new PlayerSystem());
-        }
+        private void InitializeSystems() => _systems.Add(new BoardInitSystem())
+                                                    .Add(new SquareInitSystem())
+                                                    .Add(new ChessInitSystem())
+                                                    .Add(new PlayerInitSystem())
+                                                    .Add(new BoardViewSystem())
+                                                    .Add(new SquareViewSystem())
+                                                    .Add(new ChessViewSystem())
+                                                    .Add(new SquareSelectSystem())
+                                                    .Add(new MovementSystem());
 
         private void InitializeUI()
         {
             _menu = new Menu(_ui, _systems);
-            _menu.Add(new LobbyController());
-            _menu.Add(new TransitionController());
-            _menu.Add(new SettingsController());
+
+            _menu.Add(new LobbyController())
+                 .Add(new TransitionController())
+                 .Add(new SettingsController());
+
             _systems.Inject(_menu);
         }
     }

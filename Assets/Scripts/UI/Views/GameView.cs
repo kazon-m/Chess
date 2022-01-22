@@ -4,6 +4,5 @@ namespace UI.Views
 {
     public class GameView : MonoBehaviour
     {
-        
     }
 }

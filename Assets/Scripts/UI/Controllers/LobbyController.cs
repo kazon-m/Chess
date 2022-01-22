@@ -7,7 +7,7 @@ namespace UI.Controllers
 {
     public class LobbyController : IController
     {
-        private Menu _menu;
+        private readonly Menu _menu = null;
         private LobbyView _view;
 
         public void Show() => _view.gameObject.SetActive(true);

@@ -11,16 +11,19 @@ namespace Data
     {
         [Header("Square settings")]
         public Image SquarePrefab;
+
         public Color SquareWhiteColor;
         public Color SquareBlackColor;
         public Color SquareHoverColor;
         public Color SquareClickedColor;
         public Color SquarePossibleColor;
-        
+
         [Header("Chess settings")]
         public Image ChessPrefab;
-        
+
         public List<ChessItem> ChessList = new List<ChessItem>();
+
+        public ChessItem GetChessItemByType(ChessType type) => ChessList.Find(item => item.type == type);
 
         [Serializable]
         public struct ChessItem

@@ -7,7 +7,7 @@ namespace UI.Controllers
 {
     public class TransitionController : IController
     {
-        private Menu _menu;
+        private readonly Menu _menu = null;
         private TransitionView _view;
 
         public void Show() => _view.gameObject.SetActive(true);

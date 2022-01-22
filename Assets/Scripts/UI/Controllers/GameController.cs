@@ -7,7 +7,7 @@ namespace UI.Controllers
 {
     public class GameController : IController
     {
-        private Menu _menu;
+        private readonly Menu _menu = null;
         private GameView _view;
 
         public void Show() => _view.gameObject.SetActive(true);

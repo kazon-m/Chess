@@ -7,6 +7,6 @@ namespace UnityComponents
     [RequireComponent(typeof(GridLayoutGroup))]
     public class Board : MonoBehaviour
     {
-        private void Start() => EcsEvents.RegisterOnCreateBoardEvent(gameObject);
+        private void Awake() => EcsEvents.RegisterOnCreateBoardEvent(gameObject);
     }
 }

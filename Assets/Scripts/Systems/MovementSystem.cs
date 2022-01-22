@@ -2,7 +2,7 @@
 
 namespace Systems
 {
-    public class MovableSystem : IEcsSystem
+    public class MovementSystem : IEcsSystem
     {
     }
 }
