@@ -11,7 +11,7 @@ namespace Systems
         private readonly EcsFilter<BoardComponent> _boardFilter = null;
         private readonly EcsFilter<PlayerComponent> _playerFilter = null;
         private readonly EcsFilter<OnSquareClickEvent> _squareClickFilter = null;
-        private readonly EcsFilter<SquareComponent, ViewComponent> _squareFilter = null;
+        private readonly EcsFilter<SquareComponent, ViewComponent>.Exclude<SelectedComponent> _squareFilter = null;
         private readonly EcsFilter<SquareComponent, ViewComponent, SelectedComponent> _squareSelectedFilter = null;
 
         public void Run()

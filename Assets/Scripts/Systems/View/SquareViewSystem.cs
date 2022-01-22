@@ -9,7 +9,7 @@ namespace Systems.View
     {
         private readonly ChessPreset _chessPreset = null;
         private readonly EcsFilter<BoardComponent, ObjectComponent> _boardFilter = null;
-        private readonly EcsFilter<SquareComponent, PositionComponent>.Exclude<ViewComponent> _squareFilter = null;
+        private readonly EcsFilter<SquareComponent>.Exclude<ViewComponent> _squareFilter = null;
 
         public void Run()
         {

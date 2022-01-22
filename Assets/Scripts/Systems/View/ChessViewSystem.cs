@@ -28,6 +28,8 @@ namespace Systems.View
                         var chessItem = _chessPreset.GetChessItemByType(chess.type);
                         chessView.value = Object.Instantiate(_chessPreset.ChessPrefab, _squareFilter.Get3(j).value.transform);
                         chessView.value.sprite = chess.team == TeamType.White ? chessItem.spriteWhite : chessItem.spriteBlack;
+                        
+                        break;
                     }
                 }
             }
